@@ -44,7 +44,7 @@ public class PlusOne {
 		 System.out.println(sumOfDigits.toString());
 		 int count = 0;
 		 BigInteger n = sumOfDigits;
-		 while (!n.equals(new BigInteger("0"))){
+		 while (!n.equals(new BigInteger("0"))){ // is new reqd? i just wrote n.equals(BigInteger.valueOf(0))
 		     n = n.divide(new BigInteger("10"));
 		     count++;
 		 }
