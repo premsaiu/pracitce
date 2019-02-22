@@ -36,11 +36,11 @@ public class PlusOne {
 	 public int[] plusOne(int[] digits) {
 		 String str = "";
 		 for(int i=0; i<digits.length; i++) {
-			 str += String.valueOf(digits[i]);
+			 str += String.valueOf(digits[i]); //we should use StringBuffer(faster than StringBuilder) and not String since it invloves multiple concatenation. String is immuatble.
 		 }
 		 BigInteger sum = new BigInteger(str);
 		 BigInteger one = new BigInteger("1");
-		 BigInteger sumOfDigits = sum.add(one);
+		 BigInteger sumOfDigits = sum.add(one); // we can avoid creating 'one' and 'sumOfDigits' - directly write "sum = sum.add(BigInteger.valueOf(1));"
 		 System.out.println(sumOfDigits.toString());
 		 int count = 0;
 		 BigInteger n = sumOfDigits;
@@ -49,12 +49,12 @@ public class PlusOne {
 		     count++;
 		 }
 		 int output[] = new int[count];
-		 if(count!=0){
-			   n = sumOfDigits;
+		 if(count!=0){ // not reqd
+			   n = sumOfDigits; //this time copy is not required. sumOfDigits can be modified
 			   while (!n.equals(new BigInteger("0"))){
-			       output[count-1] = n.mod(new BigInteger("10")).intValue();
+			       output[count-1] = n.mod(new BigInteger("10")).intValue(); // instead do output[--count]
 			       n = n.divide(new BigInteger("10"));
-			       count--;
+			       count--; // not reqd
 			   }
 		}
 		return output;
