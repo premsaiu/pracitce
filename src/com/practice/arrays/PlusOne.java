@@ -34,27 +34,27 @@ public class PlusOne {
 	}
 	
 	 public int[] plusOne(int[] digits) {
-		 String str = "";
+		 StringBuilder str = new StringBuilder();
 		 for(int i=0; i<digits.length; i++) {
-			 str += String.valueOf(digits[i]);
+			 str.append(String.valueOf(digits[i]));
 		 }
-		 BigInteger sum = new BigInteger(str);
-		 BigInteger one = new BigInteger("1");
-		 BigInteger sumOfDigits = sum.add(one);
+		 BigInteger sumOfDigits = new BigInteger(str.toString());
+		 //BigInteger one = new BigInteger("1");
+		 sumOfDigits = sumOfDigits.add(BigInteger.valueOf(1));
 		 System.out.println(sumOfDigits.toString());
 		 int count = 0;
 		 BigInteger n = sumOfDigits;
-		 while (!n.equals(new BigInteger("0"))){
-		     n = n.divide(new BigInteger("10"));
+		 while (!n.equals(BigInteger.valueOf(0))){
+		     n = n.divide(BigInteger.valueOf(10));
 		     count++;
 		 }
 		 int output[] = new int[count];
 		 if(count!=0){
 			   n = sumOfDigits;
-			   while (!n.equals(new BigInteger("0"))){
-			       output[count-1] = n.mod(new BigInteger("10")).intValue();
-			       n = n.divide(new BigInteger("10"));
-			       count--;
+			   while (!n.equals(BigInteger.valueOf(0))){
+			       output[--count] = n.mod(BigInteger.valueOf(10)).intValue();
+			       n = n.divide(BigInteger.valueOf(10));
+			       //count--;
 			   }
 		}
 		return output;
