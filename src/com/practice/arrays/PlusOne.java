@@ -32,7 +32,7 @@ public class PlusOne {
 			System.out.println("Result: "+result[i]);
 		}
 	}
-	
+	//added comments
 	 public int[] plusOne(int[] digits) {
 		 StringBuilder str = new StringBuilder();
 		 for(int i=0; i<digits.length; i++) {
