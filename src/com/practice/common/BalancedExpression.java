@@ -1,4 +1,4 @@
-package com.practice.arrays;
+package com.practice.common;
 
 public class BalancedExpression {
 
